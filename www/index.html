@@ -22,7 +22,9 @@
 	
 	function onDetected() {
 		var element = document.getElementById('shakeData');
-		element.innerHTML = 'It\'s happening! '+acceleration.x +' '+ acceleration.y + ' '+acceleration.z+ '<p><button type="button" onclick="clearShakeData();">Clear</button></p>'
+		element.innerHTML = 'It\'s happening! '+shake.previousAcceleration.x 
+		+' '+ shake.previousAcceleration.y + ' '+shake.previousAcceleration.z
+		+ ' <p><button type="button" onclick="clearShakeData();">Clear</button></p>'
 	}
 	
 	function clearShakeData(){
