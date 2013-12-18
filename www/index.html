@@ -22,9 +22,11 @@
 	
 	function onDetected() {
 		var element = document.getElementById('shakeData');
-		element.innerHTML = 'It\'s happening! '+shake.previousAcceleration.x 
+		element.innerHTML = 'It\'s happening!  <p><button type="button" onclick="clearShakeData();">Clear</button></p>';
+		element = document.getElementById('shakeData2');
+		element.innerHTML = '<p> shake'+shake.previousAcceleration.x 
 		+' '+ shake.previousAcceleration.y + ' '+shake.previousAcceleration.z
-		+ ' <p><button type="button" onclick="clearShakeData();">Clear</button></p>'
+		+ '</p>';
 	}
 	
 	function clearShakeData(){
@@ -35,7 +37,8 @@
   </head>
   <body>
 	<div id="deviceIsReady">Loading...</div>
-    <p id="shakeData">
+    <p id="shakeData"></p>
+    <p id="shakeData2">
 	</p>
   </body>
 </html>
