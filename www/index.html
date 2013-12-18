@@ -55,7 +55,7 @@ function gotMovement(a) {
 
 function shuffleNumber() {
         var newNum = getRandomInt(1,6);
-        document.querySelector("#die").innerHTML = newNum;
+        document.querySelector("#die").innerHTML = newNum +' '+ lastX+' '+lastY+' '+lastZ+' '+moveCounter ;
 }
 
 function getRandomInt(min, max) {
