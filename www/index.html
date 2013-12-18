@@ -1,44 +1,84 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Accelerometer Shake Test</title>
 
-    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-    <script type="text/javascript" charset="utf-8" src="shake.js"></script>
-    <script type="text/javascript" charset="utf-8">
+<head>
+<title>Shake the Die!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+ <script src="phonegap.js"></script>
 
-    // Wait for Cordova to connect with the device
-    //
-    document.addEventListener("deviceready",onDeviceReady,false);
 
-    // Cordova is ready to be used!
-    //
-    function onDeviceReady() {
-		var element = document.getElementById('deviceIsReady');
-		element.innerHTML = 'Watching shake movement...';
-		
-		shake.startWatch(onDetected);
-    }
-	
-	function onDetected() {
-		var element = document.getElementById('shakeData');
-		element.innerHTML = 'It\'s happening!  <p><button type="button" onclick="clearShakeData();">Clear</button></p>';
-		element = document.getElementById('shakeData2');
-		element.innerHTML = '<p> shake'+shake.previousAcceleration.x 
-		+' '+ shake.previousAcceleration.y + ' '+shake.previousAcceleration.z
-		+ '</p>';
-	}
-	
-	function clearShakeData(){
-		document.getElementById('shakeData').innerHTML = '';
-	}
+<script>
+document.addEventListener("deviceready", onDeviceReady, false);
 
-    </script>
-  </head>
-  <body>
-	<div id="deviceIsReady">Loading...</div>
-    <p id="shakeData"></p>
-    <p id="shakeData2">
-	</p>
-  </body>
+var lastX,lastY,lastZ;
+var moveCounter = 0;
+
+function onDeviceReady() {
+        shuffleNumber();
+        navigator.accelerometer.watchAcceleration(gotMovement, errHandler,{frequency:200});        
+}
+
+function errHandler(e) {
+        console.log("--- ERROR ---");
+        console.dir(e);
+}
+
+function gotMovement(a) {
+        if(!lastX) {
+                lastX = a.x;
+                lastY = a.y;
+                lastZ = a.z;
+                return;
+        }
+
+        var deltaX, deltaY, deltaZ;
+        deltaX = Math.abs(a.x-lastX);
+        deltaY = Math.abs(a.y-lastY);
+        deltaZ = Math.abs(a.z-lastZ);
+
+        if(deltaX + deltaY + deltaZ > 3) {
+                moveCounter++;
+        } else {
+                moveCounter = Math.max(0, --moveCounter);
+        }
+
+        if(deltaX !=0 || deltaY != 0 || deltaZ != 0) console.log(deltaX,deltaY,deltaZ,moveCounter);
+
+        if(moveCounter > 1) { shuffleNumber(); moveCounter=0; }
+
+        lastX = a.x;
+        lastY = a.y;
+        lastZ = a.z;
+
+
+}
+
+function shuffleNumber() {
+        var newNum = getRandomInt(1,6);
+        document.querySelector("#die").innerHTML = newNum;
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+</script>
+<style>
+#die {
+        font-weight:bold;
+        font-family: Arial;
+        font-size: 12em;
+        width:100%;
+        height:100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div id="die"></div>
+
+</body>
 </html>
