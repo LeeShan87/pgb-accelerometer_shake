@@ -16,7 +16,7 @@
         <gap:platform name="symbian.wrt"/>
         <gap:platform name="blackberry" project="widgets"/>
     </gap:platforms>
-
+<preference name="phonegap-version" value="2.9.0" />
 	<gap:plugin name="com.phonegap.plugins.childbrowser"  />
 
     	<access origin="*" />
