@@ -83,7 +83,7 @@ function onDeviceReady() {
                   if (networkState == Connection.NONE) {
                       window.location="local/index.html"; 
                   } else {
-               window.location="http://indiemonkeys.com/";
+               //window.location="http://indiemonkeys.com/";
                //window.plugins.childBrowser.showWebPage('http://www.google.com', { showLocationBar: true });
                   }
      }
@@ -103,8 +103,8 @@ function onDeviceReady() {
 </head>
 
 <body>
+<iframe id="myIframe" src="http://www.google.com" height="100%" width="100%">
 
-<div id="die">loading</div>
-
+</iframe>
 </body>
 </html>
