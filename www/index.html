@@ -31,7 +31,9 @@ function onDeviceReady() {
                   if (networkState == Connection.NONE) {
                       window.location="local/index.html"; 
                   } else {
-               var ref = window.open('http://indiemonkeys.com', '_blank', 'location=yes');
+               window.plugins.ChildBrowser.showWebPage('http://www.google.com',
+                                        { showLocationBar: true });
+               //var ref = window.open('http://indiemonkeys.com', '_blank', 'location=yes');
                //window.location="http://indiemonkeys.com/";
                //window.plugins.childBrowser.showWebPage('http://www.google.com', { showLocationBar: true });
                   }
