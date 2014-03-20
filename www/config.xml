@@ -17,7 +17,7 @@
         <gap:platform name="blackberry" project="widgets"/>
     </gap:platforms>
 
-	<gap:plugin name="com.phonegap.plugins.childbrowser" version="4.2.1" />
+	<gap:plugin name="com.phonegap.plugins.childbrowser"  />
 
     	<access origin="*" />
     	<access uri="*" subdomains="true" /><feature name="http://api.phonegap.com/1.0/device"/>
