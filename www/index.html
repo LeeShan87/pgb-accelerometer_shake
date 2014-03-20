@@ -8,7 +8,7 @@
 
 
 <script>
-document.addEventListener("deviceready", onDeviceReady, false);
+/*document.addEventListener("deviceready", onDeviceReady, false);
 
 var lastX,lastY,lastZ;
 var moveCounter = 0;
@@ -60,7 +60,16 @@ function shuffleNumber() {
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+}*/
+function onDeviceReady() {
+       var networkState = checkConnection();
+    /* load local files if there is not network connection */
+                  if (networkState == Connection.NONE) {
+                      window.location="local/index.html"; 
+                  } else {
+               window.location="http://your.website";
+                  }
+     }
 </script>
 <style>
 #die {
@@ -78,7 +87,7 @@ function getRandomInt(min, max) {
 
 <body>
 
-<div id="die"></div>
+<div id="die">Sorry:( no connection :$</div>
 
 </body>
 </html>
