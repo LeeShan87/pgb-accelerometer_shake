@@ -21,7 +21,7 @@
 
     	<access origin="*" />
     	<access uri="*" subdomains="true" /><feature name="http://api.phonegap.com/1.0/device"/>
-	<feature name="http://api.phonegap.com/1.0/battery"/>
+	<feature name="http://plugins.phonegap.com/ChildBrowser/2.0.1"/>
 
 	<feature name="http://api.phonegap.com/1.0/battery"/>
 	<feature name="http://api.phonegap.com/1.0/camera"/>
