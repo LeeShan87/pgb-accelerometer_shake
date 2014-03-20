@@ -31,8 +31,7 @@ function onDeviceReady() {
                   if (networkState == Connection.NONE) {
                       window.location="local/index.html"; 
                   } else {
-               window.plugins.ChildBrowser.showWebPage('http://www.google.com',
-                                        { showLocationBar: true });
+               window.plugins.ChildBrowser.showWebPage('http://www.google.com');
                //var ref = window.open('http://indiemonkeys.com', '_blank', 'location=yes');
                //window.location="http://indiemonkeys.com/";
                //window.plugins.childBrowser.showWebPage('http://www.google.com', { showLocationBar: true });
@@ -106,5 +105,6 @@ function getRandomInt(min, max) {
 </head>
 
 <body>
+loading
 </body>
 </html>
